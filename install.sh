@@ -32,6 +32,9 @@ for container in $containers; do
             fi
         done <<< "$mounts"
 
+        # 移除末尾的斜杠
+        mount=$(echo $mount | sed 's:/*$::')
+
         echo "容器 $container 的挂载目录：$mount"
 
         # 检查是否成功获取挂载目录
