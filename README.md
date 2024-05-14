@@ -6,5 +6,5 @@
 
 运行以下命令一键安装：
 
-
-`bash <(curl -s https://raw.githubusercontent.com/f3j43fz/update/main/install.sh)`
+```bash
+bash <(curl -s https://raw.githubusercontent.com/f3j43fz/update/main/install.sh)
