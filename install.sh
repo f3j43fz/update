@@ -56,8 +56,9 @@ EOF
 
 chmod +x /usr/local/bin/update_geosite.sh
 
-# 设置 cron 任务，每天凌晨2点运行 update_geosite.sh
-(crontab -l 2>/dev/null; echo "0 2 * * * /usr/local/bin/update_geosite.sh") | crontab -
+# 检查是否已存在相同的 cron 任务
+cron_job="0 2 * * * /usr/local/bin/update_geosite.sh"
+(crontab -l | grep -F "$cron_job") || (crontab -l 2>/dev/null; echo "$cron_job") | crontab -
 
 # 立即执行一次更新脚本
 /usr/local/bin/update_geosite.sh
